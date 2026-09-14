@@ -5,7 +5,7 @@ gem "yaml_db"
 
 # json 3.0+ dropped the `quirks_mode` keyword that activesupport still passes
 # to JSON.generate, which raises "unknown keyword: quirks_mode" (Rails 8.0.5.1).
-gem "json", "< 3"
+gem "json", "< 4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.3"
