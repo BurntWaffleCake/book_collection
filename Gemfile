@@ -1,3 +1,4 @@
+ruby "ruby-3.4.6"
 source "https://rubygems.org"
 
 gem "concurrent-ruby", "1.3.4"
