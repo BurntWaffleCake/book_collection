@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+ruby "3.4.6"
 
 gem "concurrent-ruby", "1.3.4"
 gem "yaml_db"
