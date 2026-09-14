@@ -15,6 +15,11 @@ class BooksTest < ApplicationSystemTestCase
     click_on "New book"
 
     fill_in "Title", with: @book.title
+    fill_in "Author", with: @book.author
+    fill_in "Price", with: @book.price
+    select @book.published_date.year, from: "book_published_date_1i"
+    select @book.published_date.strftime("%B"), from: "book_published_date_2i"
+    select @book.published_date.day, from: "book_published_date_3i"
     click_on "Create Book"
 
     assert_text "Book was successfully created"
@@ -34,7 +39,8 @@ class BooksTest < ApplicationSystemTestCase
 
   test "should destroy Book" do
     visit book_url(@book)
-    click_on "Destroy this book", match: :first
+    click_on "Delete this book", match: :first
+    click_on "Confirm"
 
     assert_text "Book was successfully destroyed"
   end
