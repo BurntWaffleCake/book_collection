@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "concurrent-ruby", "1.3.4"
+gem "concurrent-ruby", "1.3.8"
 gem "yaml_db"
 
 # json 3.0+ dropped the `quirks_mode` keyword that activesupport still passes
