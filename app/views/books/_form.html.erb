@@ -14,6 +14,16 @@
   <div style="display: flex; flex-direction: column; gap: 4px; max-width: 240px; border: solid 1px black; padding: 4px;">
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
+
+    <%= form.label :author, style: "display: block" %>
+    <%= form.text_field :author %>
+
+    <%= form.label :price, style: "display: block" %>
+    <%= form.number_field :price, step: 0.01, min: 0 %>
+
+    <%= form.label :published_date, style: "display: block" %>
+    <%= form.date_select :published_date %>
+
     <%= form.submit %>
   </div>
 

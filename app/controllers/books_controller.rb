@@ -32,6 +32,7 @@ class BooksController < ApplicationController
         format.html { redirect_to @book, notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
       else
+        flash.now[:alert] = "Book was not saved: #{@book.errors.full_messages.to_sentence}"
         format.html { render :new, status: :unprocessable_content }
         format.json { render json: @book.errors, status: :unprocessable_content }
       end
@@ -69,6 +70,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.expect(book: [ :title ])
+      params.expect(book: [ :title, :author, :price, :published_date ])
     end
 end
