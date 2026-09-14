@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+
+<h1>Are you sure you want to destroy this book?</h1>
+
+<%= render @book %>
+
+<div>
+  <%= link_to "Cancel", @book %>
+  <%= button_to "Confirm", @book, method: :delete %>
+</div>

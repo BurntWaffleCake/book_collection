@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Books" %>
+
+<h1>Books</h1>
+
+<div id="books" style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; max-width: 240px;">
+  <% @books.each do |book| %>
+    <div style="border: 1px solid black; padding: 4px;">
+      <%= render book %>
+      <p>
+        <%= link_to "Show this book", book %>
+        <%= link_to "Delete this book", delete_book_path(book) %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "New book", new_book_path %>

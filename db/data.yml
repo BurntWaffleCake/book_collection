@@ -1,0 +1,26 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - 2026-09-14 00:34:57.330734000 Z
+    - 2026-09-14 00:34:57.330738000 Z
+
+---
+books:
+  columns:
+  - id
+  - title
+  - created_at
+  - updated_at
+  records: 
+  - - 2
+    - Hello, World!
+    - 2026-09-14 00:45:38.212203000 Z
+    - 2026-09-14 00:45:38.212203000 Z
