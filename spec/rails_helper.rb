@@ -69,4 +69,14 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # All controllers require an authenticated admin (see ApplicationController),
+  # so sign one in before every request spec.
+  config.include Devise::Test::IntegrationHelpers, type: :request
+  config.before(:each, type: :request) do
+    # Routes are lazy-loaded in Rails 8; Devise's :admin mapping is registered
+    # when routes load, so make sure that has happened before signing in.
+    Rails.application.try(:reload_routes_unless_loaded)
+    sign_in Admin.find_or_create_by!(email: "admin@example.com") { |a| a.assign_attributes(full_name: "Test Admin", uid: "123") }
+  end
 end

@@ -15,7 +15,6 @@ RSpec.describe "user_books/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", user_books_path, "post" do
-
       assert_select "select[name=?]", "user_book[user_id]"
 
       assert_select "select[name=?]", "user_book[book_id]"
