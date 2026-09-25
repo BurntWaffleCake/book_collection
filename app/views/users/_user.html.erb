@@ -1,7 +1,7 @@
-<div id="<%= dom_id user %>">
-  <p>
+<div id="<%= dom_id user %>" style="display: flex; flex-direction: column; gap: 0; border: 1px solid black; padding: 0.25rem;">
+  <p style="margin: 0;">
     <strong>Username:</strong>
     <%= user.username %>
   </p>
-
+    <%= link_to "Show this user", user %>
 </div>
