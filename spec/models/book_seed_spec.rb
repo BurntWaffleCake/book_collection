@@ -1,9 +1,11 @@
 require "rails_helper"
 
-# These specs read data that db/seeds.rb is expected to have already loaded into
-# the test database (via `RAILS_ENV=test bin/rails db:seed`), rather than creating
-# their own records. They verify the seed file actually populated the test DB.
+# These specs verify that db/seeds.rb populates the database as expected.
+# The seed file is idempotent, so loading it here is safe even if the test DB
+# was already seeded via `RAILS_ENV=test bin/rails db:seed`.
 RSpec.describe "Seeded data", type: :model do
+  before { Rails.application.load_seed }
+
   it "includes a book from the seed file" do
     expect(Book.find_by(title: "The Hobbit")).to be_present
   end

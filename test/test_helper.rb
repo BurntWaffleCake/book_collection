@@ -13,3 +13,25 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
   end
 end
+
+module SignInAdmin
+  extend ActiveSupport::Concern
+
+  included do
+    include Devise::Test::IntegrationHelpers
+
+    # All controllers require an authenticated admin (see ApplicationController).
+    # Routes are lazy-loaded in Rails 8 and Devise's :admin mapping is registered
+    # when routes load, so make sure that has happened before signing in.
+    setup do
+      Rails.application.try(:reload_routes_unless_loaded)
+      sign_in admins(:one)
+    end
+  end
+end
+
+module ActionDispatch
+  class IntegrationTest
+    include SignInAdmin
+  end
+end
